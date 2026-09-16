@@ -5,22 +5,21 @@ munit_case(RUN, test_zero_out_integer, {
   snek_int_t integer;
   integer.value = 42;
   snek_zero_out(&integer, INTEGER);
-  munit_assert_int(integer.value, ==, 0, "Integer should be zeroed out to 0");
+  munit_assert_int(integer.value, ==, 0);
 });
 
 munit_case(RUN, test_zero_out_float, {
   snek_float_t float_num;
   float_num.value = 3.14;
   snek_zero_out(&float_num, FLOAT);
-  munit_assert_float(float_num.value, ==, 0.0,
-                     "Float should be zeroed out to 0.0");
+  munit_assert_float(float_num.value, ==, 0.0);
 });
 
 munit_case(SUBMIT, test_zero_out_bool, {
   snek_bool_t boolean;
   boolean.value = 1;
   snek_zero_out(&boolean, BOOL);
-  munit_assert_int(boolean.value, ==, 0, "Boolean should be zeroed out to 0");
+  munit_assert_int(boolean.value, ==, 0);
 });
 
 munit_case(SUBMIT, test_zero_out_nonzero_values, {
@@ -36,12 +35,9 @@ munit_case(SUBMIT, test_zero_out_nonzero_values, {
   snek_zero_out(&float_num, FLOAT);
   snek_zero_out(&boolean, BOOL);
 
-  munit_assert_int(integer.value, ==, 0,
-                   "Negative integer should be zeroed out to 0");
-  munit_assert_float(float_num.value, ==, 0.0,
-                     "Negative float should be zeroed out to 0.0");
-  munit_assert_int(boolean.value, ==, 0,
-                   "Non-zero boolean should be zeroed out to 0");
+  munit_assert_int(integer.value, ==, 0);
+  munit_assert_float(float_num.value, ==, 0.0);
+  munit_assert_int(boolean.value, ==, 0);
 });
 
 int main() {
